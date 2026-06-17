@@ -5,17 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>INclude — Funding Tracker</title>
 <style>
-  :root{
-    --navy:#0F2A44; --navy2:#14304d; --teal:#1ABCB0; --teal-d:#119a90;
-    --teal-l:#D6F2EF; --ink:#1d2b3a; --grey:#6B7785; --line:#e2e8ee;
-    --bg:#f5f8fa; --white:#ffffff;
-    --amber:#FFE9B8; --amber-t:#8a6d1f; --red:#F4D4D4; --red-t:#9a3b3b;
-    --green:#D4EFD4; --green-t:#2f6b34; --slate:#E0E6EC;
-  }
+  :root{--navy:#0F2A44;--navy2:#14304d;--teal:#1ABCB0;--teal-d:#119a90;--teal-l:#D6F2EF;--ink:#1d2b3a;--grey:#6B7785;--line:#e2e8ee;--bg:#f5f8fa;--amber:#FFE9B8;--amber-t:#8a6d1f;--red:#F4D4D4;--red-t:#9a3b3b;--green:#D4EFD4;--green-t:#2f6b34;}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Poppins','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
-
   header{background:var(--navy);color:#fff;padding:26px 0 22px;}
   header .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
   .brand{display:flex;align-items:center;gap:13px;}
@@ -27,20 +20,14 @@
   .brand .tag{font-size:.74rem;color:var(--teal);text-transform:uppercase;letter-spacing:2.5px;font-weight:600;}
   .head-meta{font-size:.74rem;color:#9fb3c4;text-align:right;line-height:1.7;}
   .head-meta b{color:#fff;}
-
-  .banner{background:var(--teal-l);border-left:4px solid var(--teal);color:var(--navy);
-    font-size:.83rem;padding:11px 16px;border-radius:0 7px 7px 0;margin:20px 0 4px;}
+  .banner{background:var(--teal-l);border-left:4px solid var(--teal);color:var(--navy);font-size:.83rem;padding:11px 16px;border-radius:0 7px 7px 0;margin:20px 0 4px;}
   .banner b{font-weight:600;}
-
   .controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 6px;}
   .search{flex:1;min-width:200px;padding:10px 14px;border:1.5px solid var(--line);border-radius:9px;font-size:.9rem;font-family:inherit;background:#fff;}
   .search:focus{outline:none;border-color:var(--teal);}
   .toggle{display:flex;background:#fff;border:1.5px solid var(--line);border-radius:9px;overflow:hidden;}
-  .toggle button{border:none;background:#fff;padding:10px 18px;font-family:inherit;font-size:.85rem;font-weight:600;color:var(--grey);cursor:pointer;}
+  .toggle button{border:none;background:#fff;padding:10px 16px;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--grey);cursor:pointer;}
   .toggle button.on{background:var(--navy);color:#fff;}
-  .btn{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:10px 15px;font-family:inherit;font-size:.83rem;font-weight:600;color:var(--navy);cursor:pointer;}
-  .btn:hover{border-color:var(--teal);}
-
   .legend{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px;font-size:.74rem;}
   .chip{padding:4px 11px;border-radius:20px;font-weight:600;}
   .c-apply{background:var(--green);color:var(--green-t);}
@@ -48,8 +35,6 @@
   .c-hold{background:var(--red);color:var(--red-t);}
   .c-action{background:#dbeafe;color:#1e54a0;}
   .c-done{background:var(--teal-l);color:var(--teal-d);}
-
-  /* TABLE */
   table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(15,42,68,.06);font-size:.83rem;}
   thead th{background:var(--teal);color:#fff;text-align:left;padding:11px 13px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.4px;cursor:pointer;white-space:nowrap;}
   thead th:hover{background:var(--teal-d);}
@@ -59,8 +44,6 @@
   .pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:600;white-space:nowrap;}
   td a{color:#1a6cb0;text-decoration:none;font-weight:600;}
   td a:hover{text-decoration:underline;}
-
-  /* KANBAN */
   .kanban{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
   .col{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(15,42,68,.06);overflow:hidden;}
   .col-h{padding:12px 15px;font-weight:600;font-size:.82rem;color:#fff;display:flex;justify-content:space-between;align-items:center;}
@@ -74,263 +57,87 @@
   .card h4{font-size:.88rem;color:var(--navy);margin-bottom:4px;}
   .card .meta{font-size:.74rem;color:var(--grey);margin:3px 0;}
   .card .meta b{color:var(--ink);}
-  .card .fit{font-size:.77rem;color:#41506180;color:#465465;margin-top:6px;}
+  .card .fit{font-size:.77rem;color:#465465;margin-top:6px;}
   .card a{font-size:.75rem;}
   .track-tag{display:inline-block;font-size:.66rem;font-weight:700;color:var(--teal-d);background:var(--teal-l);padding:1px 7px;border-radius:5px;margin-left:6px;vertical-align:middle;}
-
   .empty{padding:60px 20px;text-align:center;color:var(--grey);}
   .empty h3{color:var(--navy);margin-bottom:8px;}
-  .setup{background:#fff;border:1.5px dashed var(--teal);border-radius:12px;padding:24px;margin:20px 0;font-size:.86rem;}
-  .setup h3{color:var(--navy);margin-bottom:10px;}
-  .setup ol{margin:10px 0 0 20px;line-height:1.9;}
-  .setup code{background:var(--navy);color:#7fe9df;padding:2px 7px;border-radius:5px;font-size:.8rem;}
-
+  .note{background:#fff7ed;border:1px solid #f0d9a8;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#8a6d1f;margin:14px 0;}
   footer{margin:34px 0 50px;font-size:.74rem;color:var(--grey);text-align:center;line-height:1.8;}
   footer b{color:var(--navy);}
-  .hide{display:none;}
   @media(max-width:640px){.head-meta{text-align:left;}thead{display:none;}table,tbody,tr,td{display:block;width:100%;}tbody tr{margin-bottom:14px;border:1px solid var(--line);border-radius:10px;overflow:hidden;}tbody td{border:none;border-top:1px solid var(--line);}tbody td::before{content:attr(data-l);display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.5px;color:var(--grey);font-weight:700;margin-bottom:2px;}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <div class="tag">EdJustice · Funding</div>
-        <h1>INclude — Grant Funding Tracker</h1>
-      </div>
-    </div>
-    <div class="head-meta">
-      <div>Live view of the funding pipeline</div>
-      <div>Last loaded: <b id="loaded">—</b></div>
-    </div>
-  </div>
-</header>
-
+<header><div class="wrap"><div class="brand"><div class="logo"></div><div><div class="tag">EdJustice · Funding</div><h1>INclude — Grant Funding Tracker</h1></div></div><div class="head-meta"><div>Funding pipeline — verified June 16, 2026</div><div>16 funders · 6 family referrals</div></div></div></header>
 <div class="wrap">
-  <div class="banner">
-    <b>This is a read-only window.</b> To change a funder's status or notes, edit the Google Sheet — this page reflects those edits each time it loads.
-  </div>
-
-  <div class="controls">
-    <input id="search" class="search" placeholder="Search funders, tracks, notes…">
-    <div class="toggle">
-      <button id="tBtn" class="on" onclick="setView('table')">Table</button>
-      <button id="kBtn" onclick="setView('kanban')">Board</button>
-    </div>
-    <button class="btn" onclick="loadData()">↻ Refresh</button>
-  </div>
-
-  <div class="legend">
-    <span class="chip c-action">★ Action Needed</span>
-    <span class="chip c-apply">Apply Now</span>
-    <span class="chip c-verify">Verify First</span>
-    <span class="chip c-done">Applied / Submitted</span>
-    <span class="chip c-hold">Hold</span>
-  </div>
-
-  <div id="content"></div>
-
-  <footer>
-    <b>INclude Funding Tracker.</b> Built as a living tool — the Google Sheet is the source of truth; this page displays it.<br>
-    Always verify deadlines and amounts directly with each funder before applying — grant cycles change.<br>
-    Edits made in the Sheet appear here on the next load. This page does not store or change data.
-  </footer>
+<div class="banner"><b>Always verify deadlines and amounts directly with each funder before applying.</b> Grant cycles change — the "Last Verified" date shows when each row was last checked.</div>
+<div class="controls"><input id="search" class="search" placeholder="Search funders, tracks, notes…"><div class="toggle"><button id="tBtn" class="on" onclick="setView('table')">Table</button><button id="kBtn" onclick="setView('kanban')">Board</button><button id="rBtn" onclick="setView('referrals')">Family Referrals</button></div></div>
+<div id="legend" class="legend"><span class="chip c-action">★ Action Needed</span><span class="chip c-apply">Apply Now</span><span class="chip c-verify">Verify First</span><span class="chip c-done">Applied / Submitted</span><span class="chip c-hold">Hold</span></div>
+<div id="content"></div>
+<footer><b>INclude Funding Tracker.</b> Two funding tracks: <b>A</b> = Mobile Sensory Dignity Space (capital) · <b>B</b> = general operating/programs · <b>C</b> = faith/ministry.<br>Always verify deadlines and amounts directly with each funder before applying — grant cycles change.</footer>
 </div>
-
 <script>
-/* ============================================================
-   SETUP — paste your published-CSV URL here.
-   In the Google Sheet:  File ▸ Share ▸ Publish to web ▸
-   choose the "Funder Pipeline" sheet ▸ CSV ▸ Publish.
-   Copy the URL it gives you and paste it between the quotes below.
-   ============================================================ */
-const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTD4aVT2MMPYVfO4zU-EwyERjsRu9MQsM4N7qxOrberIkgPbRltgYWmRbF6ACM7_JSou3tBH1NSZD6M/pub?gid=1100153319&single=true&output=csv";
-
-let RAW = [], view = "table";
-
+const DATA = {"funders": [{"tier": "\u2605 START", "funder": "CONFIRM 501(c)(3) determination date", "track": "All", "status": "Action Needed", "deadline": "Do first", "amount": "\u2014", "fit": "This date gates several funders below. Find it on INclude's IRS determination letter or via IRS Tax Exempt Org Search.", "gate": "Unlocks Autism Speaks (needs 1+ yr) and Anderson (prefers 3+ yr).", "link": "https://apps.irs.gov/app/eos/", "verified": "2026-06-16", "notes": ""}, {"tier": "1 \u00b7 Apply Now", "funder": "Walmart Spark Good Local Grants", "track": "A + B", "status": "Verify First", "deadline": "Rolling (FY27 windows)", "amount": "$250\u2013$5,000", "fit": "Lowest-lift entry point. Apply at several Richmond-area stores. Good for RV line-items and program costs.", "gate": "501(c)(3) + Deed/Spark Good account. No tenure requirement.", "link": "https://walmart.org/how-we-give/local-community-grants", "verified": "2026-06-16", "notes": ""}, {"tier": "1 \u00b7 Apply Now", "funder": "Awesome Foundation \u2014 Disability chapter", "track": "A", "status": "Verify First", "deadline": "Monthly (submit 1st\u201310th)", "amount": "$1,000", "fit": "No strings, no reporting. Pitch a discrete sensory-equipment component of the RV.", "gate": "Open to any entity \u2014 NO 501(c)(3) tenure requirement. Won't fund individual medical/rent needs.", "link": "https://www.awesomefoundation.org/en/chapters/disability", "verified": "2026-06-16", "notes": ""}, {"tier": "1 \u00b7 Apply Now", "funder": "The Cameron Foundation", "track": "A + B", "status": "Verify First", "deadline": "LOI: May 1, 2026 \u2192 Proposal: Jun 25, 2026", "amount": "$100\u2013$673,000 (varies)", "fit": "Funds CAPITAL explicitly. Strong fit IF the RV serves the Tri-Cities (Petersburg/Colonial Heights/Hopewell + nearby).", "gate": "GATE: requires an all-volunteer board of 5+ unrelated persons; NO paid staff as voting board member. Confirm INclude qualifies. ~51% served must be in service area.", "link": "https://camfound.org/apply/application-deadlines", "verified": "2026-06-16", "notes": ""}, {"tier": "1 \u00b7 Apply Now", "funder": "Knights of Columbus / Kiwanis / Lions / Rotary", "track": "A", "status": "Verify First", "deadline": "Rolling (local councils)", "amount": "$250\u2013$5,000", "fit": "Relationship-driven local gifts; strong capital-campaign supplement. VA K of C (KOVAR) funds IDD causes.", "gate": "Approach individual local councils/chapters directly.", "link": "", "verified": "2026-06-16", "notes": ""}, {"tier": "2 \u00b7 Verify First", "funder": "Community Foundation for a greater Richmond", "track": "B", "status": "Verify First", "deadline": "Next cycle TBD (confirm directly)", "amount": "Competitive", "fit": "Best overall equity fit. Service area covers Richmond + Petersburg corridor. Centers racial equity for Black/Brown residents.", "gate": "501(c)(3). March 2026 cycle has passed \u2014 confirm next Community Impact Grant cycle dates.", "link": "https://www.cfrichmond.org/receive/nonprofits-foundations/community-impact-grants", "verified": "2026-06-16", "notes": ""}, {"tier": "2 \u00b7 Verify First", "funder": "Dominion Energy Charitable Foundation (FALL cycle)", "track": "A + B", "status": "Verify First", "deadline": "Fall 2026 (confirm dates)", "amount": "Project grants", "fit": "Funds human needs / community vitality / education. Spring closed Feb 20. Use the FALL cycle.", "gate": "Must register a Benevity cause profile + complete Self-Certification BEFORE applying. Do this now.", "link": "https://www.dominionenergy.com/foundation", "verified": "2026-06-16", "notes": ""}, {"tier": "2 \u00b7 Verify First", "funder": "CarMax Foundation \u2014 Home Office Grants", "track": "A + B", "status": "Verify First", "deadline": "Confirm current cycle", "amount": "Varies", "fit": "Richmond-HQ'd; funds health/wellness, youth, resilient communities in the Richmond area.", "gate": "Could not confirm current cycle this pass \u2014 verify deadline + focus directly.", "link": "https://www.carmax.com/about-carmax/foundation", "verified": "2026-06-16", "notes": ""}, {"tier": "2 \u00b7 Verify First", "funder": "Organization for Autism Research (OAR) Community Grant", "track": "B", "status": "Verify First", "deadline": "~Fall 2026 (was paused \u2014 watch for reopen)", "amount": "$1,000\u2013$15,000", "fit": "Excellent fit for adapted/AAC/culturally-responsive materials. Confirmed PAUSED for 2025\u201326.", "gate": "501(c)(3), parent groups, community orgs eligible. Watch for reopening.", "link": "https://researchautism.org/educators/community-grant-competition/", "verified": "2026-06-16", "notes": ""}, {"tier": "3 \u00b7 Faith Track", "funder": "Joni & Friends \u2014 Christian Fund for the Disabled", "track": "C", "status": "Verify First", "deadline": "Quarterly cycles", "amount": "Up to $2,500 ($1,500 scholarships)", "fit": "Directly on-mission for the INclude.live ministry resources. Funds projects, not salaries/operating.", "gate": "Needs endorsement letter from sponsoring church/Christian org. For projects >$2,500, 80% of budget must be funded first.", "link": "https://joniandfriends.org/", "verified": "2026-06-16", "notes": ""}, {"tier": "HOLD", "funder": "VBPD \u2014 Creating Inclusive Communities RFP", "track": "B", "status": "Hold", "deadline": "CLOSED Apr 17, 2026", "amount": "Up to $200,000 total", "fit": "Deadline passed AND focus is pre-employment transition for transition-age youth \u2014 not a clean fit for early-ID/sensory work.", "gate": "Watch for next RFP; only pursue if INclude can credibly frame around pre-employment transition.", "link": "https://vbpd.virginia.gov/grants/", "verified": "2026-06-16", "notes": ""}, {"tier": "HOLD", "funder": "NEXT for Autism", "track": "B", "status": "Hold", "deadline": "CLOSED May 22, 2026", "amount": "$10,000 new / $20,000 returning", "fit": "Deadline passed AND funds services for autistic ADULTS (home/work/social/health) \u2014 INclude serves children. Likely mismatch.", "gate": "Verify mission fit before pursuing the 2027 cycle.", "link": "https://nextforautism.org/our-work/grants-and-guidelines/", "verified": "2026-06-16", "notes": ""}, {"tier": "HOLD", "funder": "Robins Foundation \u2014 SEED / SPARK (ECCE)", "track": "B", "status": "Hold", "deadline": "Cycles vary", "amount": "Up to $25,000", "fit": "SEED is for licensed child-care PROVIDERS (0\u20135); SPARK is early-childhood-ed scoped. INclude is training/resource org, not a provider.", "gate": "Excludes churches/religious programs. Only viable if framing a specific secular 0\u20135 early-ID program. Verify eligibility directly.", "link": "https://robinsfdn.org/applying-for-grants/", "verified": "2026-06-16", "notes": ""}, {"tier": "HOLD", "funder": "Autism Speaks \u2014 Local Impact Grant", "track": "B", "status": "Hold", "deadline": "Confirm 2026 cycle", "amount": "Up to $5,000", "fit": "Funds social/educational experiences for autistic people. Good future fit.", "gate": "GATE: 501(c)(3) held 1+ year, 3+ staff (paid or volunteer), physical location, website. Explicitly no startup funding. Blocked until det. date confirmed.", "link": "https://www.autismspeaks.org/", "verified": "2026-06-16", "notes": ""}, {"tier": "HOLD", "funder": "Anderson Foundation for Autism", "track": "B", "status": "Hold", "deadline": "Annual", "amount": "$500\u2013$5,000", "fit": "Small national grants. A 2027+ target.", "gate": "GATE: prefers orgs with 501(c)(3) held 3+ years.", "link": "https://www.andersoncenterforautism.org/afagrants/", "verified": "2026-06-16", "notes": ""}, {"tier": "HOLD", "funder": "National autism RESEARCH funders (ASF, ARI, Autism Science Fdn)", "track": "\u2014", "status": "Hold", "deadline": "n/a", "amount": "Large", "fit": "Research/biomedical only \u2014 wrong funding vehicle for a community-services org. Not a fit.", "gate": "Skip unless INclude adds a formal research arm.", "link": "", "verified": "2026-06-16", "notes": ""}], "referrals": [{"resource": "ACT Today! (Autism Care Today)", "covers": "ABA, speech/OT, assistive tech, safety equipment, camps \u2014 paid to provider", "amount": "$100\u2013$5,000", "applies": "Family/caregiver", "link": "https://act-today.org/apply-for-grant/"}, {"resource": "Autism Spectrum Disorder Foundation (ASDF)", "covers": "Summer-camp scholarships, iPads for Kids, holiday gift cards", "amount": "Varies", "applies": "Family/caregiver", "link": "https://myasdf.org/"}, {"resource": "Doug Flutie Jr. Foundation", "covers": "Family aid (New England/Central FL focus \u2014 VA likely out of footprint)", "amount": "Up to ~$2,000", "applies": "Family (geo-limited)", "link": "https://flutiefoundation.org/"}, {"resource": "National Autism Association \u2014 Give A Voice", "covers": "AAC communication devices for non/minimally-speaking individuals", "amount": "Device", "applies": "Family/caregiver", "link": "https://nationalautismassociation.org/"}, {"resource": "Small Steps in Speech", "covers": "Speech-language therapy support", "amount": "Varies", "applies": "Family/caregiver", "link": "https://smallstepsinspeech.org/"}, {"resource": "UnitedHealthcare Children's Foundation", "covers": "Medical needs not covered by insurance", "amount": "Up to ~$5,000", "applies": "Family/caregiver", "link": "https://www.uhccf.org/"}]};
+let view="table";
 function setView(v){
-  view = v;
-  document.getElementById('tBtn').classList.toggle('on', v==='table');
-  document.getElementById('kBtn').classList.toggle('on', v==='kanban');
+  view=v;
+  document.getElementById('tBtn').classList.toggle('on',v==='table');
+  document.getElementById('kBtn').classList.toggle('on',v==='kanban');
+  document.getElementById('rBtn').classList.toggle('on',v==='referrals');
+  document.getElementById('legend').style.display = v==='referrals' ? 'none':'flex';
   render();
 }
-
-// minimal CSV parser (handles quoted fields, commas, newlines)
-function parseCSV(text){
-  const rows=[]; let row=[], cur="", q=false;
-  for(let i=0;i<text.length;i++){
-    const c=text[i];
-    if(q){
-      if(c==='"'){ if(text[i+1]==='"'){cur+='"';i++;} else q=false; }
-      else cur+=c;
-    } else {
-      if(c==='"') q=true;
-      else if(c===','){ row.push(cur); cur=""; }
-      else if(c==='\n'){ row.push(cur); rows.push(row); row=[]; cur=""; }
-      else if(c==='\r'){}
-      else cur+=c;
-    }
-  }
-  if(cur!==""||row.length){ row.push(cur); rows.push(row); }
-  return rows;
-}
-
-function statusClass(s){
-  s=(s||"").toLowerCase();
-  if(s.includes("action")) return "c-action";
-  if(s.includes("apply")) return "c-apply";
-  if(s.includes("verify")) return "c-verify";
-  if(s.includes("applied")||s.includes("submitt")||s.includes("award")) return "c-done";
-  if(s.includes("hold")||s.includes("declin")||s.includes("not a fit")) return "c-hold";
-  return "c-verify";
-}
-function bucket(s){
-  s=(s||"").toLowerCase();
-  if(s.includes("action")) return "action";
-  if(s.includes("hold")||s.includes("declin")||s.includes("not a fit")) return "hold";
-  if(s.includes("apply")||s.includes("applied")||s.includes("submitt")||s.includes("award")) return "apply";
-  return "verify";
-}
-
-async function loadData(){
-  const el=document.getElementById('content');
-  document.getElementById('loaded').textContent=new Date().toLocaleString();
-  if(!CSV_URL){
-    el.innerHTML=`<div class="setup">
-      <h3>One step to connect this page to the tracker</h3>
-      <p>Right now this page has no data source. To connect it to the live Google Sheet:</p>
-      <ol>
-        <li>Open the <b>INclude Funding Tracker</b> Google Sheet.</li>
-        <li>Go to <b>File ▸ Share ▸ Publish to web</b>.</li>
-        <li>Under "Link," choose the <b>Funder Pipeline</b> sheet and the <b>Comma-separated values (.csv)</b> format, then click <b>Publish</b>.</li>
-        <li>Copy the URL it gives you.</li>
-        <li>Open <code>index.html</code>, find the line <code>const CSV_URL = ""</code> near the bottom, and paste the URL between the quotes.</li>
-        <li>Save, commit to GitHub — the page goes live.</li>
-      </ol>
-    </div>`;
-    return;
-  }
-  try{
-    const res=await fetch(CSV_URL);
-    const txt=await res.text();
-    const rows=parseCSV(txt).filter(r=>r.some(c=>c&&c.trim()));
-    // find the real header row: it has its own "Tier" AND "Funder" cells
-    // (a prose row that merely mentions the word "funder" won't have a "tier" cell)
-    let hi=rows.findIndex(r=>{
-      const cells=r.map(c=>c.trim().toLowerCase());
-      return cells.includes("tier") && cells.includes("funder");
-    });
-    if(hi<0) hi=rows.findIndex(r=>r.join("|").toLowerCase().includes("funder"));
-    if(hi<0) hi=0;
-    const head=rows[hi].map(h=>h.trim().toLowerCase());
-    const col=name=>head.findIndex(h=>h.includes(name));
-    const idx={tier:col("tier"),funder:col("funder"),track:col("track"),status:col("status"),
-      deadline:col("deadline"),amount:col("amount"),fit:col("fit"),gate:col("elig"),
-      link:col("link"),verified:col("verified"),notes:col("her")};
-    RAW=rows.slice(hi+1).map(r=>({
-      tier:r[idx.tier]||"",funder:r[idx.funder]||"",track:r[idx.track]||"",status:r[idx.status]||"",
-      deadline:r[idx.deadline]||"",amount:r[idx.amount]||"",fit:r[idx.fit]||"",gate:r[idx.gate]||"",
-      link:r[idx.link]||"",verified:r[idx.verified]||"",notes:r[idx.notes]||""
-    })).filter(x=>{
-      if(!x.funder) return false;
-      // a real funder row has a Tier value; title/instruction rows do not
-      if(!x.tier || !x.tier.trim()) return false;
-      // belt-and-suspenders: drop any stray instruction/title text
-      const f=x.funder.toLowerCase();
-      if(f.includes("how to use")||f.includes("grant funding tracker")) return false;
-      return true;
-    });
-    render();
-  }catch(e){
-    el.innerHTML=`<div class="empty"><h3>Couldn't load the Sheet</h3>
-      <p>Check that the Sheet is published to the web as CSV and the URL is correct.<br>
-      (${String(e).slice(0,120)})</p></div>`;
-  }
-}
-
-function filtered(){
-  const q=document.getElementById('search').value.toLowerCase().trim();
-  if(!q) return RAW;
-  return RAW.filter(r=>Object.values(r).join(" ").toLowerCase().includes(q));
-}
-
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function linkCell(u){ if(!u||!u.trim())return "\u2014"; var t=u.replace(/^https?:\/\//,'').split('/')[0]; return '<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(t)+' \u2197</a>'; }
+function statusClass(s){s=(s||"").toLowerCase();if(s.indexOf("action")>-1)return"c-action";if(s.indexOf("apply")>-1)return"c-apply";if(s.indexOf("verify")>-1)return"c-verify";if(s.indexOf("applied")>-1||s.indexOf("submitt")>-1||s.indexOf("award")>-1)return"c-done";if(s.indexOf("hold")>-1||s.indexOf("declin")>-1)return"c-hold";return"c-verify";}
+function bucket(s){s=(s||"").toLowerCase();if(s.indexOf("action")>-1)return"action";if(s.indexOf("hold")>-1||s.indexOf("declin")>-1)return"hold";if(s.indexOf("apply")>-1||s.indexOf("applied")>-1||s.indexOf("submitt")>-1||s.indexOf("award")>-1)return"apply";return"verify";}
+function fF(){var q=document.getElementById('search').value.toLowerCase().trim();if(!q)return DATA.funders;return DATA.funders.filter(function(r){return Object.keys(r).map(function(k){return r[k];}).join(" ").toLowerCase().indexOf(q)>-1;});}
+function fR(){var q=document.getElementById('search').value.toLowerCase().trim();if(!q)return DATA.referrals;return DATA.referrals.filter(function(r){return Object.keys(r).map(function(k){return r[k];}).join(" ").toLowerCase().indexOf(q)>-1;});}
 function render(){
-  const el=document.getElementById('content');
-  const data=filtered();
-  if(!RAW.length){ return; }
-  if(!data.length){ el.innerHTML=`<div class="empty"><h3>No matches</h3><p>Try a different search term.</p></div>`; return; }
+  var el=document.getElementById('content');
+  if(view==='referrals'){ el.innerHTML=referralsHTML(fR()); return; }
+  var data=fF();
+  if(!data.length){ el.innerHTML='<div class="empty"><h3>No matches</h3><p>Try a different search term.</p></div>'; return; }
   el.innerHTML = view==='table' ? tableHTML(data) : kanbanHTML(data);
 }
-
-function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-function linkCell(u){ if(!u||!u.trim())return "—"; const t=u.replace(/^https?:\/\//,'').split('/')[0]; return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>`; }
-
 function tableHTML(data){
-  let h=`<table><thead><tr>
-    <th onclick="sortBy('tier')">Tier</th>
-    <th onclick="sortBy('funder')">Funder</th>
-    <th onclick="sortBy('track')">Track</th>
-    <th onclick="sortBy('status')">Status</th>
-    <th onclick="sortBy('deadline')">Next Deadline</th>
-    <th onclick="sortBy('amount')">Amount</th>
-    <th>Eligibility Gate</th>
-    <th>Link</th>
-    <th>Notes</th>
-  </tr></thead><tbody>`;
-  data.forEach(r=>{
-    h+=`<tr>
-      <td data-l="Tier">${esc(r.tier)}</td>
-      <td data-l="Funder"><span class="f-name">${esc(r.funder)}</span><div style="font-size:.74rem;color:#6B7785;margin-top:3px">${esc(r.fit)}</div></td>
-      <td data-l="Track">${esc(r.track)}</td>
-      <td data-l="Status"><span class="pill ${statusClass(r.status)}">${esc(r.status||"—")}</span></td>
-      <td data-l="Deadline">${esc(r.deadline)}</td>
-      <td data-l="Amount">${esc(r.amount)}</td>
-      <td data-l="Eligibility">${esc(r.gate)}</td>
-      <td data-l="Link">${linkCell(r.link)}</td>
-      <td data-l="Notes">${esc(r.notes)||"—"}</td>
-    </tr>`;
+  var h='<table><thead><tr><th onclick="sortBy(\'tier\')">Tier</th><th onclick="sortBy(\'funder\')">Funder</th><th onclick="sortBy(\'track\')">Track</th><th onclick="sortBy(\'status\')">Status</th><th onclick="sortBy(\'deadline\')">Next Deadline</th><th onclick="sortBy(\'amount\')">Amount</th><th>Eligibility Gate</th><th>Link</th></tr></thead><tbody>';
+  data.forEach(function(r){
+    h+='<tr><td data-l="Tier">'+esc(r.tier)+'</td><td data-l="Funder"><span class="f-name">'+esc(r.funder)+'</span><div style="font-size:.74rem;color:#6B7785;margin-top:3px">'+esc(r.fit)+'</div></td><td data-l="Track">'+esc(r.track)+'</td><td data-l="Status"><span class="pill '+statusClass(r.status)+'">'+esc(r.status||"\u2014")+'</span></td><td data-l="Deadline">'+esc(r.deadline)+'</td><td data-l="Amount">'+esc(r.amount)+'</td><td data-l="Eligibility">'+esc(r.gate)+'</td><td data-l="Link">'+linkCell(r.link)+'</td></tr>';
   });
-  return h+`</tbody></table>`;
+  return h+'</tbody></table>';
 }
-
 function kanbanHTML(data){
-  const cols=[
-    {k:"action",label:"★ Action Needed",cls:"col-action"},
-    {k:"apply",label:"Apply Now / In Progress",cls:"col-apply"},
-    {k:"verify",label:"Verify First",cls:"col-verify"},
-    {k:"hold",label:"Hold",cls:"col-hold"}
-  ];
-  let h=`<div class="kanban">`;
-  cols.forEach(c=>{
-    const items=data.filter(r=>bucket(r.status)===c.k);
-    h+=`<div class="col ${c.cls}"><div class="col-h"><span>${c.label}</span><span class="n">${items.length}</span></div>`;
-    items.forEach(r=>{
-      h+=`<div class="card">
-        <h4>${esc(r.funder)}${r.track?`<span class="track-tag">${esc(r.track)}</span>`:""}</h4>
-        ${r.deadline?`<div class="meta">⏱ <b>${esc(r.deadline)}</b></div>`:""}
-        ${r.amount?`<div class="meta">💰 ${esc(r.amount)}</div>`:""}
-        ${r.fit?`<div class="fit">${esc(r.fit)}</div>`:""}
-        ${r.notes?`<div class="meta" style="margin-top:6px">📝 ${esc(r.notes)}</div>`:""}
-        ${r.link&&r.link.trim()?`<div style="margin-top:7px">${linkCell(r.link)}</div>`:""}
-      </div>`;
+  var cols=[{k:"action",label:"\u2605 Action Needed",cls:"col-action"},{k:"apply",label:"Apply Now",cls:"col-apply"},{k:"verify",label:"Verify First",cls:"col-verify"},{k:"hold",label:"Hold",cls:"col-hold"}];
+  var h='<div class="kanban">';
+  cols.forEach(function(c){
+    var items=data.filter(function(r){return bucket(r.status)===c.k;});
+    h+='<div class="col '+c.cls+'"><div class="col-h"><span>'+c.label+'</span><span class="n">'+items.length+'</span></div>';
+    items.forEach(function(r){
+      h+='<div class="card"><h4>'+esc(r.funder)+(r.track?'<span class="track-tag">'+esc(r.track)+'</span>':"")+'</h4>'+(r.deadline?'<div class="meta">\u23f1 <b>'+esc(r.deadline)+'</b></div>':"")+(r.amount?'<div class="meta">\ud83d\udcb0 '+esc(r.amount)+'</div>':"")+(r.fit?'<div class="fit">'+esc(r.fit)+'</div>':"")+(r.gate?'<div class="meta" style="margin-top:6px">\u26a0 '+esc(r.gate)+'</div>':"")+(r.link&&r.link.trim()?'<div style="margin-top:7px">'+linkCell(r.link)+'</div>':"")+'</div>';
     });
-    if(!items.length) h+=`<div class="card" style="color:#9aa7b3;font-size:.8rem">None</div>`;
-    h+=`</div>`;
+    if(!items.length) h+='<div class="card" style="color:#9aa7b3;font-size:.8rem">None</div>';
+    h+='</div>';
   });
-  return h+`</div>`;
+  return h+'</div>';
 }
-
-let sortKey="",sortAsc=true;
+function referralsHTML(data){
+  var h='<div class="note"><b>These are NOT grants INclude applies for.</b> They pay providers directly for individual diagnosed children. Hand this list to the families INclude serves.</div>';
+  h+='<table><thead><tr><th>Resource</th><th>What It Covers</th><th>Amount</th><th>Who Applies</th><th>Link</th></tr></thead><tbody>';
+  data.forEach(function(r){
+    h+='<tr><td data-l="Resource"><span class="f-name">'+esc(r.resource)+'</span></td><td data-l="Covers">'+esc(r.covers)+'</td><td data-l="Amount">'+esc(r.amount)+'</td><td data-l="Applies">'+esc(r.applies)+'</td><td data-l="Link">'+linkCell(r.link)+'</td></tr>';
+  });
+  return h+'</tbody></table>';
+}
+var sortKey="",sortAsc=true;
 function sortBy(k){
   if(sortKey===k) sortAsc=!sortAsc; else {sortKey=k;sortAsc=true;}
-  RAW.sort((a,b)=>{const x=(a[k]||"").toLowerCase(),y=(b[k]||"").toLowerCase();return x<y?(sortAsc?-1:1):x>y?(sortAsc?1:-1):0;});
+  DATA.funders.sort(function(a,b){var x=(a[k]||"").toLowerCase(),y=(b[k]||"").toLowerCase();return x<y?(sortAsc?-1:1):x>y?(sortAsc?1:-1):0;});
   render();
 }
-
 document.getElementById('search').addEventListener('input',render);
-loadData();
+render();
 </script>
 </body>
 </html>
