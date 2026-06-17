@@ -216,8 +216,13 @@ async function loadData(){
     const res=await fetch(CSV_URL);
     const txt=await res.text();
     const rows=parseCSV(txt).filter(r=>r.some(c=>c&&c.trim()));
-    // find header row (the one containing "Funder")
-    let hi=rows.findIndex(r=>r.join("|").toLowerCase().includes("funder"));
+    // find the real header row: it has its own "Tier" AND "Funder" cells
+    // (a prose row that merely mentions the word "funder" won't have a "tier" cell)
+    let hi=rows.findIndex(r=>{
+      const cells=r.map(c=>c.trim().toLowerCase());
+      return cells.includes("tier") && cells.includes("funder");
+    });
+    if(hi<0) hi=rows.findIndex(r=>r.join("|").toLowerCase().includes("funder"));
     if(hi<0) hi=0;
     const head=rows[hi].map(h=>h.trim().toLowerCase());
     const col=name=>head.findIndex(h=>h.includes(name));
@@ -228,7 +233,15 @@ async function loadData(){
       tier:r[idx.tier]||"",funder:r[idx.funder]||"",track:r[idx.track]||"",status:r[idx.status]||"",
       deadline:r[idx.deadline]||"",amount:r[idx.amount]||"",fit:r[idx.fit]||"",gate:r[idx.gate]||"",
       link:r[idx.link]||"",verified:r[idx.verified]||"",notes:r[idx.notes]||""
-    })).filter(x=>x.funder);
+    })).filter(x=>{
+      if(!x.funder) return false;
+      // a real funder row has a Tier value; title/instruction rows do not
+      if(!x.tier || !x.tier.trim()) return false;
+      // belt-and-suspenders: drop any stray instruction/title text
+      const f=x.funder.toLowerCase();
+      if(f.includes("how to use")||f.includes("grant funding tracker")) return false;
+      return true;
+    });
     render();
   }catch(e){
     el.innerHTML=`<div class="empty"><h3>Couldn't load the Sheet</h3>
